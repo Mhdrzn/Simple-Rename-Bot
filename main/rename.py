@@ -8,7 +8,7 @@ async def rename_file(bot, msg):
     reply = msg.reply_to_message
     file_name = msg.text.split(" ", 1)[1]
     new_name = f"./DOWNLOADS/{file_name}"
-    sts = await message.reply_text("Trying to Downloading.....")
+    sts = await msg.reply_text("Trying to Downloading.....")
     c_time = time.time()
     downloaded = await reply.download(
         file_name=new_name,
