@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from config import ADMIN
 import os
 
-THUMBNAIL = os.environ.get("SKIP", 2)
+THUMBNAIL = os.environ.get("THUMBNAIL", None)
 
 @Client.on_message(filters.private & filters.command("set") & filters.user(ADMIN))                            
 async def set_tumb(bot, msg):
