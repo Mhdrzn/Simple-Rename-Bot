@@ -1,5 +1,5 @@
 from pyrogram import Client, filters 
-from config import ADMIN, THUMBNAIL
+from config import ADMIN, temp
 
 @Client.on_message(filters.private & filters.command("set") & filters.user(ADMIN))                            
 async def set_tumb(bot, msg):
@@ -11,14 +11,14 @@ async def set_tumb(bot, msg):
        await msg.reply("Oops !! this is Not a photo")
        return
     Tumb = msg.reply_to_message.photo.file_id
-    THUMBNAIL = Tumb
-    return await msg.reply(f"Temporary Thumbnail saved✅️ \nDo You want permanent thumbnail. please add (`{Tumb}`)this id to your server enviro with key=`THUMBNAIL`")            
+    temp.THUMBNAIL = Tumb
+    return await msg.reply(f"Temporary Thumbnail saved✅️ \nDo You want permanent thumbnail. please add [`{Tumb}`] this id to your server enviro with key=`THUMBNAIL`")            
 
 
 @Client.on_message(filters.private & filters.command("view") & filters.user(ADMIN))                            
 async def del_tumb(bot, msg):
-    if THUMBNAIL:
-        await msg.reply_photo(photo=THUMBNAIL, caption="this is your current thumbnail")
+    if temp.THUMBNAIL is not None:
+        await msg.reply_photo(photo=temp.THUMBNAIL, caption="this is your current thumbnail")
     else:
         await msg.reply_text(text="you don't have any thumbnail")
    
