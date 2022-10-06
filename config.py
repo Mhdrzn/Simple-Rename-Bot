@@ -7,7 +7,7 @@ ADMIN = int(environ.get("ADMIN", ""))
 CAPTION = environ.get("CAPTION", "")
 
 Current_Thumb = None
-THUMBNAIL = [set(x) for x in (Current_Thumb).split()]                 
+THUMBNAIL = [set(x) for x in (Current_Thumb)]                 
 
 
 
