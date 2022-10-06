@@ -1,5 +1,8 @@
 from pyrogram import Client, filters 
-from config import THUMBNAIL, ADMIN
+from config import ADMIN
+
+Current_Thumb = None
+THUMBNAIL = [set(x) for x in (Current_Thumb)]                 
 
 @Client.on_message(filters.private & filters.command("set") & filters.user(ADMIN))                            
 async def set_tumb(bot, msg):
