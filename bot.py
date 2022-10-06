@@ -1,6 +1,6 @@
 from pyrogram import Client
 from config import *
-import pyromod.listen
+from pyromod import listen
 
 class App(Client):
     def __init__(self):
