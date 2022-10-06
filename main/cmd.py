@@ -32,7 +32,7 @@ async def about(bot, msg):
 
 
 @Client.on_callback_query(filters.regex("del"))
-async def del(bot, msg):
+async def closed(bot, msg):
     try:
         await msg.message.delete()
     except:
