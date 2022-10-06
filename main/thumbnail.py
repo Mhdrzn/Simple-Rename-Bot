@@ -11,7 +11,7 @@ async def set_tumb(bot, msg):
        await msg.reply("Oops !! this is Not a photo")
        return
     Tumb = msg.reply_to_message.photo.file_id
-    THUMBNAIL.add(f"{Tumb}")
+    THUMBNAIL.add(Tumb)
     return await msg.reply("done ✅️")
 
 
