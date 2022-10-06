@@ -12,7 +12,7 @@ async def set_tumb(bot, msg):
        return
     Tumb = msg.reply_to_message.photo.file_id
     THUMBNAIL = Tumb
-    return await msg.reply("Temporary Thumbnail saved✅️ \nDo You want permanent thumbnail. please add (`{Tumb}`)this id to your server enviro with key=`THUMBNAIL`")            
+    return await msg.reply(f"Temporary Thumbnail saved✅️ \nDo You want permanent thumbnail. please add (`{Tumb}`)this id to your server enviro with key=`THUMBNAIL`")            
 
 
 @Client.on_message(filters.private & filters.command("view") & filters.user(ADMIN))                            
