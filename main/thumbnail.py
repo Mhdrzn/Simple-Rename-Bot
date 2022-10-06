@@ -1,8 +1,8 @@
 from pyrogram import Client, filters 
 from config import ADMIN
+import os
 
-Current = None
-THUMBNAIL = set((x) for x in (Current))
+THUMBNAIL = os.environ.get("SKIP", 2)
 
 @Client.on_message(filters.private & filters.command("set") & filters.user(ADMIN))                            
 async def set_tumb(bot, msg):
@@ -14,7 +14,7 @@ async def set_tumb(bot, msg):
        await msg.reply("Oops !! this is Not a photo")
        return
     Tumb = msg.reply_to_message.photo.file_id
-    THUMBNAIL.add(Tumb)
+    THUMBNAIL = Tumb
     return await msg.reply("done ✅️")
 
 
