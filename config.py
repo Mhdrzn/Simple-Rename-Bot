@@ -6,7 +6,7 @@ BOT_TOKEN = environ.get("BOT_TOKEN", "")
 ADMIN = int(environ.get("ADMIN", ""))
 CAPTION = environ.get("CAPTION", "")
 
-Current_Thumb = environ.get("THUMBNAIL", "")
+Current_Thumb = None
 THUMBNAIL = [set(x) for x in (Current_Thumb).split()]                 
 
 
