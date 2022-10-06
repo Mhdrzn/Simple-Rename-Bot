@@ -25,7 +25,7 @@ async def rename_file(bot, msg):
     await sts.edit("Trying to Uploading")
     c_time = time.time()
     await bot.send_document(
-            msg.message.chat.id,
+            msg.chat.id,
             document=downloaded,
             thumb=og_thumbnail, 
             caption=cap, 
