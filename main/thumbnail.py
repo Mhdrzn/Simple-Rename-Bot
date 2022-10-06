@@ -1,8 +1,6 @@
 from pyrogram import Client, filters 
-from config import ADMIN
+from config import config
 import os
-
-THUMBNAIL = os.environ.get("SKIP", 2)
 
 @Client.on_message(filters.private & filters.command("set") & filters.user(ADMIN))                            
 async def set_tumb(bot, msg):
@@ -13,14 +11,13 @@ async def set_tumb(bot, msg):
     if not msg.reply_to_message.photo:
        await msg.reply("Oops !! this is Not a photo")
        return
-    Tumb = msg.reply_to_message.photo.file_id
-    THUMBNAIL = Tumb
+    config.THUMBNAIL = msg.reply_to_message.photo.file_id
     return await msg.reply("done ✅️")
 
 
 @Client.on_message(filters.private & filters.command("view") & filters.user(ADMIN))                            
 async def del_tumb(bot, msg):
-    if THUMBNAIL:
+    if THUMBNAIL is not None:
         await msg.reply_photo(photo=THUMBNAIL, text="this is your current thumbnail")
     else:
         await msg.reply_text(text="you don't have any thumbnail")
