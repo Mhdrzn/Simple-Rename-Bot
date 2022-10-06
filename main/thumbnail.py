@@ -12,6 +12,7 @@ async def set_tumb(bot, msg):
        return
     tumb = msg.reply_to_message.photo.file_id
     THUMBNAIL.add(tumb)
+    return await msg.reply("done ✅️")
 
 
 @Client.on_message(filters.private & filters.command("delete") & filters.user(ADMIN))                            
