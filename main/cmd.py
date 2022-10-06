@@ -12,7 +12,7 @@ async def start(bot, msg, cb=True):
     txt=f"hai {msg.from_user.mention} i am simple rename bot"
     button= [[
         InlineKeyboardButton("ℹ️ ʜᴇʟᴩ", callback_data="help"),
-        Inlinekeyboardbutton("📡 ᴀʙᴏᴜᴛ", callback_data="about") 
+        InlineKeyboardButton("📡 ᴀʙᴏᴜᴛ", callback_data="about") 
     ]]  
     if cb:
         await msg.message.edit(text=txt, reply_markup=InlineKeyboardMarkup(button))
