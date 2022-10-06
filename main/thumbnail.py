@@ -10,8 +10,8 @@ async def set_tumb(bot, msg):
     if not msg.reply_to_message.photo:
        await msg.reply("Oops !! this is Not a photo")
        return
-    tumb = msg.reply_to_message.photo.file_id
-    THUMBNAIL.add(tumb)
+    Tumb = msg.reply_to_message.photo.file_id
+    THUMBNAIL.add(Tumb)
     return await msg.reply("done ✅️")
 
 
