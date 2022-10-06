@@ -20,20 +20,21 @@ async def start(bot, msg, cb=True):
         await msg.reply_text(text=txt, reply_markup=InlineKeyboardMarkup(button))
 
 
-Client.on_callback_query(filters.regex("help"))
+@Client.on_callback_query(filters.regex("help"))
 async def help(bot, msg):
     await msg.message.edit(text="soon")
 
 
-Client.on_callback_query(filters.regex("about"))
-async def about(bot, msg, cb=True):
+@Client.on_callback_query(filters.regex("about"))
+async def about(bot, msg):
+    me=await bot.get_me()
     await msg.message.edit(text="soon")
 
 
-Client.on_callback_query(filters.regex("del"))
-async def del(bot, msg, cb=True):
+@Client.on_callback_query(filters.regex("del"))
+async def del(bot, msg):
     try:
-        await update.message.delete()
+        await msg.message.delete()
     except:
         return     
 
