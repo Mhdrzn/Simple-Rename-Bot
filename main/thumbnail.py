@@ -15,7 +15,7 @@ async def set_tumb(bot, msg):
     return await msg.reply("done ✅️")
 
 
-@Client.on_message(filters.private & filters.command("delete") & filters.user(ADMIN))                            
+@Client.on_message(filters.private & filters.command("view") & filters.user(ADMIN))                            
 async def del_tumb(bot, msg):
     if THUMBNAIL:
         await msg.reply_photo(photo=THUMBNAIL, text="this is your current thumbnail")
