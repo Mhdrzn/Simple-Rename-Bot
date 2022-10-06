@@ -4,7 +4,7 @@ from pyrogram.types import *
 
 @Client.on_message(filters.command("start") & filters.private)                             
 async def start_cmd(bot, msg):
-    await help_cb(bot, msg, cb=False)
+    await start(bot, msg, cb=False)
 
 
 @Client.on_callback_query(filters.regex("start"))
